@@ -4,5 +4,6 @@ rust:
 - stable
 script:
 - |
+  heroku buildpacks:set emk/rust &&
   cargo build &&
   cargo test
