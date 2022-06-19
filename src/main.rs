@@ -1,10 +1,10 @@
-use actix_web::{get, post, web, App, HttpResponse, HttpServer, Responder, Error, error};
+use actix_web::{get, web, App, HttpResponse, HttpServer, Error, error};
 use tera::Tera;
 
 #[get("/")]
 async fn hello(tmpl: web::Data<Tera>) -> Result<HttpResponse, Error> {
 
-    let mut ctx = tera::Context::new();
+    let ctx = tera::Context::new();
     let view = tmpl.render("index.html", &ctx)
             .map_err(|e| error::ErrorInternalServerError(e))?;
     Ok(HttpResponse::Ok().content_type("text/html").body(view))

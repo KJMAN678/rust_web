@@ -1,3 +1,9 @@
+Mac 12.4  
+Rust 1.61.0  
+
+# Rust のパスを通す
+source $HOME/.cargo/env
+
 # ビルド
 cargo build
 
@@ -5,3 +11,30 @@ cargo build
 target/debug/web
 
 http://127.0.0.1:8080
+
+# git に push
+git push heroku master 
+
+# Docker イメージ作成
+docker build -t rustweb:1 .
+
+# コンテナとしてイメージを実行
+docker container run -d -p 8080:80 rustweb:1
+
+# Docker コンテナの起動
+docker start ngry_bell
+
+# Docker イメージの一覧の表示
+docker images
+
+# コンテナの一覧の表示
+docker ps -a
+
+# コンテナの停止
+docker stop rustweb:1
+
+# コンテナの削除
+docker rm rustweb:1
+
+# イメージの削除
+docker rmi rustweb:1
