@@ -1,0 +1,7 @@
+# ビルド
+cargo build
+
+# ローカルサーバーの起動
+target/debug/web
+
+http://127.0.0.1:8080
